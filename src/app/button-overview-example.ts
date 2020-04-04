@@ -1,17 +1,22 @@
-import { Component } from "@angular/core";
-
+import { Component } from '@angular/core';
+import { DeviationComponent } from './deviation/deviation.component';
+import { MatDialog } from '@angular/material';
 /**
  * @title Basic buttons
  */
 @Component({
-  selector: "button-overview-example",
-  templateUrl: "button-overview-example.html",
-  styleUrls: ["button-overview-example.css"]
+  selector: 'button-overview-example',
+  templateUrl: 'button-overview-example.html',
+  styleUrls: ['button-overview-example.css']
 })
 export class ButtonOverviewExample {
-  color = "accent";
-}
+  constructor(public dialog: MatDialog) {}
+  color = 'accent';
 
-/**  Copyright 2019 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */
+  openDeviation() {
+    const dialogRef = this.dialog.open(DeviationComponent, {
+      height: '500px',
+      width: '700px'
+    });
+  }
+}

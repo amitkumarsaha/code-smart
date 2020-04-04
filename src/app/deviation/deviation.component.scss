@@ -48,16 +48,31 @@ table {
   border: 1px solid #ddd;
   padding: 8px;
 }
-// .reference-no.{
-//   padding: ;
-// }
+.reference-no{
+  width: 50%;
+  float: left;
+}
+.pfid{
+  float: right;
+  width: 50%;
+}
+.appr-date{
+  width: 50%;
+  float: left;
+}
+.decision-rpt{
+  width: 50%;
+  float: right;
+}
 .cancel-btn{
   border-radius: 25px;
+  float: right;
 
 }
 .save-btn{
   background-color: #2196F3;
   border-radius: 25px;
   color: white;
+  float: right;
 }
       

@@ -17,10 +17,12 @@
 </table>
 
 <form class="deviation-form">
+  <div>
   <mat-form-field class="deviation-full-width">
     <mat-label>Approving Authority</mat-label>
     <input matInput placeholder="PF ID">
   </mat-form-field>
+</div>
 </form>
 
 <div ><span>Remarks:</span></div>
@@ -37,21 +39,21 @@
 
     <div><span>Enter details of the action taken on Deviation report</span></div>
 
-<div class="reference-no.">
+<div class="reference-no">
     <mat-form-field class="deviation-width">
         <mat-label>Approval / Cir. Reference No.</mat-label>
         <input matInput placeholder="Enter Approval / Cir. Reference No.">
     </mat-form-field>
 </div>
 
-<div class="">
+<div class="pfid">
 <mat-form-field class="deviation-width">
 <mat-label>Approval PF ID</mat-label>
 <input matInput placeholder="Enter Approval PF ID">
 </mat-form-field>
 </div>
 
-<div>
+<div class="appr-date">
 <mat-form-field>
     <mat-label>Date of Approval / Circular</mat-label>
     <input matInput [matDatepicker]="picker">
@@ -60,7 +62,7 @@
 </mat-form-field>
 </div>
   
-<div>
+<div class="decision-rpt">
   <mat-form-field >
     <mat-label>Decision Taken on Report</mat-label>
     <mat-select>

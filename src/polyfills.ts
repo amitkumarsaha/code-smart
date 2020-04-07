@@ -1,5 +1,5 @@
-import 'zone.js/dist/zone';
 import 'hammerjs';
+import 'zone.js/dist/zone';
 
 
 /**  Copyright 2019 Google LLC. All Rights Reserved.

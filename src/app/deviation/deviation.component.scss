@@ -10,17 +10,22 @@
 //      margin: 4px 2px;
 //      cursor: pointer;
 //    }
+.devtia-txt{
+  background-color: blueviolet;
+  margin-bottom: 10px;
+  text-align: left;
+}
 .deviation-btn{
   background-color: lightgray;
   border-radius: 25px;
 
 }
 .deviation-width{
-  width: 40%;
+  width: 50%;
 }
 .deviation-form {
-  min-width: 150px;
-  max-width: 500px;
+  // min-width: 150px;
+  // max-width: 500px;
   width: 100%;
 }
 .remarks-box{
@@ -31,13 +36,13 @@
 .button {
     margin-top: 10px;
     }
-table {
+.table-size{
   width: 100%;
 }
 .table-border td, table-border th {
   border: 1px solid #ddd;
   padding: 8px;
-  text-align: center;
+  text-align: left;
 }
 .table-border th {
   padding-top: 12px;
@@ -48,6 +53,7 @@ table {
   border: 1px solid #ddd;
   padding: 8px;
 }
+
 .reference-no{
   width: 50%;
   float: left;
@@ -67,6 +73,9 @@ table {
 .cancel-btn{
   border-radius: 25px;
   float: right;
+  background-color: lightgray;
+  margin-right: 10px;
+  
 
 }
 .save-btn{
@@ -74,5 +83,11 @@ table {
   border-radius: 25px;
   color: white;
   float: right;
+
+}
+.mat-tab-labels {
+  .mat-tab-label {
+    flex: 1 !important;
+  }
 }
       

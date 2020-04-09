@@ -1,5 +1,5 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 body {
   font-family: Roboto, Arial, sans-serif;
   margin: 0;
@@ -11,11 +11,6 @@ body {
   font-size: 8pt;
   float: right;
 }
-.mat-form-field-wrapper{
-  position: relative;
-  width: 160%;
-}
-
 
 
 /**  Copyright 2019 Google LLC. All Rights Reserved.

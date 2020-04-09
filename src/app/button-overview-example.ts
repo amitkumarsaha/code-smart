@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { MatDialog } from '@angular/material/dialog';
+import { IncomeDetailsComponent } from './income-details/income-details.component';
 
 /**
  * @title Basic buttons
@@ -6,10 +8,19 @@ import { Component } from "@angular/core";
 @Component({
   selector: "button-overview-example",
   templateUrl: "button-overview-example.html",
-  styleUrls: ["button-overview-example.css"]
+  styleUrls: ["button-overview-example.css"],
 })
 export class ButtonOverviewExample {
   color = "accent";
+
+  constructor(public dialog: MatDialog){}
+
+  openIncomeDetails(){
+    const dialogRef = this.dialog.open(IncomeDetailsComponent, {
+      width: '2200px',
+      height: '800px'
+    });
+  }
 }
 
 /**  Copyright 2019 Google LLC. All Rights Reserved.

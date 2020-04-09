@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './app/material-module';
 
 import {ButtonOverviewExample} from './app/button-overview-example';
+import { IncomeDetailsComponent } from './app/income-details/income-details.component';
 
 @NgModule({
   imports: [
@@ -21,8 +22,8 @@ import {ButtonOverviewExample} from './app/button-overview-example';
     MatNativeDateModule,
     ReactiveFormsModule,
   ],
-  entryComponents: [ButtonOverviewExample],
-  declarations: [ButtonOverviewExample],
+  entryComponents: [ButtonOverviewExample,IncomeDetailsComponent],
+  declarations: [ButtonOverviewExample,IncomeDetailsComponent],
   bootstrap: [ButtonOverviewExample],
   providers: []
 })

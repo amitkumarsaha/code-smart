@@ -1,0 +1,34 @@
+.buttons{
+   margin-left: 925px; 
+}
+.fetch{
+    padding-left: 140px;
+    padding-top: 20px;
+}
+.ifscCode{
+    padding-left: 70px;
+}
+.branchDetails
+{
+    margin-left: 416px;
+}
+.selectPayment
+{
+    width: 50%;
+}
+
+
+
+// <!-- <div class="row">
+//         <form [formGroup]="incomeDetails" (ngSubmit)="incomeDetails.valid && onRegisterSubmit()" novalidate>
+//           <div class="form-container">
+//             <div class="row d-flex">   
+//               <mat-form-field class="selectPayment">
+//                 <mat-label>Mode of Repayment</mat-label>
+//                 <mat-select formControlName="custom-select" [(ngModel)]="paymentMode" (change)="changeAccount(paymentMode)" formControlName="modeRepay" class="form-control">
+//                   <mat-option value="">Select mode of repayment</mat-option>
+//                   <mat-option value="SI">SI (Salary A/C with SBI)</mat-option>
+//                   <mat-option value="NACH">NACH (Salary A/C not with SBI)</mat-option>
+//                 </mat-select>
+//               </mat-form-field>
+//               </div> -->

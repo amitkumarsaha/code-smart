@@ -1,16 +1,18 @@
 import './polyfills';
 
-import {HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatNativeDateModule} from '@angular/material/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {DemoMaterialModule} from './app/material-module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DemoMaterialModule } from './app/material-module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddEmploymentDetailsComponent } from './app/add-employment-details/add-employment-details.component'
-import {ButtonOverviewExample} from './app/button-overview-example';
+import { ButtonOverviewExample } from './app/button-overview-example';
+import { RoVerificationComponent } from './app/ro-verification/ro-verification.component';
+import { DeviationComponent } from './app/deviation/deviation.component';
 
 
 @NgModule({
@@ -24,12 +26,12 @@ import {ButtonOverviewExample} from './app/button-overview-example';
     ReactiveFormsModule,
     NgbModule
   ],
-  entryComponents: [ButtonOverviewExample,AddEmploymentDetailsComponent],
-  declarations: [ButtonOverviewExample,AddEmploymentDetailsComponent],
+  entryComponents: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent],
+  declarations: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent],
   bootstrap: [ButtonOverviewExample],
   providers: []
 })
-export class AppModule {}
+export class AppModule { }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

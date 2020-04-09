@@ -1,6 +1,9 @@
-import { Component, ViewEncapsulation  } from "@angular/core";
+import { Component, ViewEncapsulation } from "@angular/core";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddEmploymentDetailsComponent } from './add-employment-details/add-employment-details.component'
+import { RoVerificationComponent } from './ro-verification/ro-verification.component';
+import { MatDialog } from '@angular/material';
+import { DeviationComponent } from './deviation/deviation.component';
 
 /**
  * @title Basic buttons
@@ -13,12 +16,26 @@ import { AddEmploymentDetailsComponent } from './add-employment-details/add-empl
 })
 export class ButtonOverviewExample {
   closeResult: string;
-  content:any;
+  content: any;
 
-  constructor(private modalService: NgbModal,) {}
+  constructor(private modalService: NgbModal, public dialog: MatDialog) { }
 
-  openXl(content:string) {
+  openXl(content: string) {
     this.modalService.open(AddEmploymentDetailsComponent, { size: 'xl' });
+  }
+
+  openRoVerification() {
+    let dialogRef = this.dialog.open(RoVerificationComponent, {
+      height: "400px",
+      width: "600px"
+    });
+  }
+
+  openDeviation() {
+    let dialogRef = this.dialog.open(DeviationComponent, {
+      height: "400px",
+      width: "600px"
+    });
   }
 
 }

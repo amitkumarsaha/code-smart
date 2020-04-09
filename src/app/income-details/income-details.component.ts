@@ -46,7 +46,7 @@ export class IncomeDetailsComponent implements OnInit {
      },
      {
       name: "NACH (Salary A/C not with SBI)",
-      value: "NACH
+      value: "NACH"
      }
     ]
   }

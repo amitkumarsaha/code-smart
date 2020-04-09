@@ -8,8 +8,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './app/material-module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AddEmploymentDetailsComponent } from './app/add-employment-details/add-employment-details.component'
 import {ButtonOverviewExample} from './app/button-overview-example';
-import {DeviationComponent} from './app/deviation/deviation.component';
+
 
 @NgModule({
   imports: [
@@ -20,9 +22,10 @@ import {DeviationComponent} from './app/deviation/deviation.component';
     DemoMaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    NgbModule
   ],
-  entryComponents: [ButtonOverviewExample, DeviationComponent],
-  declarations: [ButtonOverviewExample, DeviationComponent],
+  entryComponents: [ButtonOverviewExample,AddEmploymentDetailsComponent],
+  declarations: [ButtonOverviewExample,AddEmploymentDetailsComponent],
   bootstrap: [ButtonOverviewExample],
   providers: []
 })

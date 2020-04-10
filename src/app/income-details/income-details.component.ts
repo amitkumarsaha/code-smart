@@ -11,22 +11,7 @@ export class IncomeDetailsComponent implements OnInit {
   showTable: boolean = false;
   incomeDetails: FormGroup;
   repaymentList: any= [];
-// paymentMode = [
-//   {
-//     id: 1, 
-//     name: "Select mode of repayment"
-//   },
-//   {
-//     id: 2, 
-//     name: "SI (Salary A/C with SBI)"
-//   },
-//   {
-//     id: 3, 
-//     name: "Select mokde of repayment"
-//   },
-
-// ]
-
+  
   constructor() {
     this.incomeDetails = new FormGroup({
       modeRepay: new FormControl(null),
@@ -37,12 +22,12 @@ export class IncomeDetailsComponent implements OnInit {
 
     this.repaymentList = [
      {
-      name: 'SI (Salary A/C with SBI)',
-      value: "SI"
+      name: 'Select mode of repayment',
+      value: "modeofRepayment"
      },
      {
-       name: "NACH (Salary A/C not with SBI)",
-       value: "NACH"
+       name: "SI (Salary A/C with SBI)",
+       value: "SI"
      },
      {
       name: "NACH (Salary A/C not with SBI)",

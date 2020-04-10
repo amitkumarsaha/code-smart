@@ -27,14 +27,14 @@ export class ButtonOverviewExample {
   openXl(content: string) {
     // this.modalService.open(AddEmploymentDetailsComponent, { size: 'xl' });
     let dialogRef = this.dialog.open(AddEmploymentDetailsComponent, {
-      height: "400px",
+      height: "800px",
       width: "600px"
     });
   }
 
   openRoVerification() {
     let dialogRef = this.dialog.open(RoVerificationComponent, {
-      height: "400px",
+      height: "900px",
       width: "600px"
     });
   }
@@ -48,7 +48,7 @@ export class ButtonOverviewExample {
 
   openIncomeDetails(){
     const dialogRef = this.dialog.open(IncomeDetailsComponent, {
-      width: '2200px',
+      width: '900px',
       height: '800px'
     });
   }

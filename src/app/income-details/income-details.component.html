@@ -19,7 +19,7 @@
           <option value="NACH">NACH (Salary A/C not with SBI)</option>
         </select> -->
                 <mat-form-field>
-                  <mat-label>Favorite food</mat-label>
+                  <mat-label>Mode of Repayment</mat-label>
                   <mat-select formControlName="modeRepay" (selectionChange)="changeAccount($event)">
                     <mat-option *ngFor="let mode of repaymentList" [value]="mode.value"> {{ mode.name }}</mat-option>
                   </mat-select>

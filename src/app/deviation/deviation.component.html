@@ -1,0 +1,85 @@
+<div class="devtia-txt"><span>Deviation</span></div>
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="Initiate Deviation">
+    <form class="deviation-form">
+      <div class="mt-4 mb-3"><span><b>Deviation Sought for Credit Card Defaults</b></span></div>
+
+      <table mat-table [dataSource]="dataSource" class="table-border table-size">
+        <ng-container matColumnDef="part">
+          <th mat-header-cell *matHeaderCellDef> Particulars</th>
+          <td mat-cell *matCellDef="let element"> {{element.part}} </td>
+        </ng-container>
+        <ng-container matColumnDef="num">
+          <th mat-header-cell *matHeaderCellDef> No. of cards </th>
+          <td mat-cell *matCellDef="let element"> {{element.num}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <div class="mt-4">
+        <mat-form-field class="deviation-full-width">
+          <mat-label>Approving Authority</mat-label>
+          <input matInput placeholder="PF ID">
+          <!-- formControlName="pfId" -->
+        </mat-form-field>
+      </div>
+   
+    <div class="mb-1"><span>Remarks:</span></div>
+    <textarea type="text" placeholder="Enter Remarks, if any" class="remarks-box"></textarea>
+  </form>
+
+    <div class="button mt-5">
+      <button mat-button class="deviation-btn">Generate Deviation form</button>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Update Decision">
+    <div class="mt-4 text-style"><span><b>Deviation Sought for Credit Card Defaults</b></span></div>
+    <div class="mt-4 mb-4"><span>Enter details of the action taken on Deviation report</span></div>
+    <form [formGroup]="updateDeviation">
+      <div class="reference-no mb-2 ">
+        <mat-form-field class="deviation-width">
+          <mat-label>Approval / Cir. Reference No.</mat-label>
+          <input matInput placeholder="Enter Approval / Cir. Reference No." formControlName="cifNo">
+        </mat-form-field>
+      </div>
+
+      <div class="pfid mb-2">
+        <mat-form-field class="deviation-width">
+          <mat-label>Approval PF ID</mat-label>
+          <mat-hint>(Name of the Banker)</mat-hint>
+          <input matInput placeholder="Enter Approval PF ID" formControlName="apprvPfId">
+        </mat-form-field>
+      </div>
+
+      <div class="appr-date mb-2">
+        <mat-form-field class="deviation-width">
+          <mat-label>Date of Approval / Circular</mat-label>
+          <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="dateOfApprv">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker ></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="decision-rpt mb-2">
+        <mat-form-field class="deviation-width">
+          <mat-label>Decision Taken on Report</mat-label>
+          <mat-select formControlName="selectStatus">
+            <mat-option value="approve">Approved</mat-option>
+            <mat-option value="reject">Reject</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-10"><span>Remarks:</span></div>
+      <textarea type="text" placeholder="Enter Remarks, if any" class="remarks-box"></textarea>
+      <hr>
+      <div class="button">
+        <button mat-button class="save-btn" (click)="saveButton">Save</button>
+        <button mat-button class="cancel-btn" (click)="closeButton()">Cancel</button>
+      </div>
+
+    </form>
+  </mat-tab>
+</mat-tab-group>

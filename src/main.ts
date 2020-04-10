@@ -1,13 +1,17 @@
 import './polyfills';
 
-import {HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatNativeDateModule} from '@angular/material/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {DemoMaterialModule} from './app/material-module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DemoMaterialModule } from './app/material-module';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddEmploymentDetailsComponent } from './app/add-employment-details/add-employment-details.component'
+import { RoVerificationComponent } from './app/ro-verification/ro-verification.component';
+import { DeviationComponent } from './app/deviation/deviation.component';
 
 import {ButtonOverviewExample} from './app/button-overview-example';
 import { IncomeDetailsComponent } from './app/income-details/income-details.component';
@@ -21,13 +25,14 @@ import { IncomeDetailsComponent } from './app/income-details/income-details.comp
     DemoMaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    // NgbModule
   ],
-  entryComponents: [ButtonOverviewExample,IncomeDetailsComponent],
-  declarations: [ButtonOverviewExample,IncomeDetailsComponent],
+  entryComponents: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent,IncomeDetailsComponent],
+  declarations: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent,IncomeDetailsComponent],
   bootstrap: [ButtonOverviewExample],
   providers: []
 })
-export class AppModule {}
+export class AppModule { }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

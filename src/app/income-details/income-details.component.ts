@@ -14,7 +14,7 @@ export class IncomeDetailsComponent implements OnInit {
 // paymentMode = [
 //   {
 //     id: 1, 
-//     name: "Select mokde of repayment"
+//     name: "Select mode of repayment"
 //   },
 //   {
 //     id: 2, 

@@ -1,36 +1,33 @@
-// .mat-tab{
-//     background-color: #4CAF50;
-//      border: none;
-//      color: white;
-//      padding: 15px 32px;
-//      text-align: center;
-//      text-decoration: none;
-//      display: inline-block;
-//      font-size: 16px;
-//      margin: 4px 2px;
-//      cursor: pointer;
-//    }
-.deviation-p{
+.ro-verification{
   padding: 20px;
 }
-.devtia-txt{
-  background-color: blueviolet;
-  margin-bottom: 10px;
-  text-align: left;
-  height: 33px;
 
-}
-.deviation-btn{
+.ro-btn{
   background-color: lightgray;
   border-radius: 25px;
+}
 
+.ro-ver-heading{
+  padding: 10px;
+  background-color: #2196F3;
 }
-.deviation-width{
-  width: 50%;
+
+.update-decision-heading{
+  padding-bottom: 10px;
+  font-size: 20px;
 }
-.deviation-form {
-  // min-width: 150px;
-  // max-width: 500px;
+
+.remarks{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.ro-width{
+  width: 40%;
+}
+.ro-form {
+  min-width: 150px;
+  max-width: 500px;
   width: 100%;
 }
 .remarks-box{
@@ -41,13 +38,13 @@
 .button {
     margin-top: 10px;
     }
-.table-size{
+table {
   width: 100%;
 }
 .table-border td, table-border th {
   border: 1px solid #ddd;
   padding: 8px;
-  text-align: left;
+  text-align: center;
 }
 .table-border th {
   padding-top: 12px;
@@ -58,29 +55,31 @@
   border: 1px solid #ddd;
   padding: 8px;
 }
-
-.reference-no{
+.agencyName{
   width: 50%;
   float: left;
 }
-.pfid{
-  float: right;
-  width: 50%;
-}
+
 .appr-date{
   width: 50%;
   float: left;
 }
-.decision-rpt{
+
+.pfid{
+  float: right;
+  width: 50%;
+}
+.decision-date{
+  width: 50%;
+  float: left;
+}
+.agency-email{
   width: 50%;
   float: right;
 }
 .cancel-btn{
   border-radius: 25px;
   float: right;
-  background-color: lightgray;
-  margin-right: 10px;
-  
 
 }
 .save-btn{
@@ -88,11 +87,5 @@
   border-radius: 25px;
   color: white;
   float: right;
-
-}
-.mat-tab-labels {
-  .mat-tab-label {
-    flex: 1 !important;
-  }
 }
       

@@ -7,7 +7,7 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./add-employment-details.component.scss']
 })
 export class AddEmploymentDetailsComponent implements OnInit {
-  @Input() name:any;
+  @Input() name: any;
   model: NgbDateStruct;
 
   constructor(public activeModal: NgbActiveModal) {}

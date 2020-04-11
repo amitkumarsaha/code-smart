@@ -1,6 +1,7 @@
 <div class="devtia-txt"><span>Deviation</span></div>
 <mat-tab-group animationDuration="0ms">
-  <mat-tab label="Initiate Deviation">
+  <mat-tab label="Initiate Deviation" autocomplete="off">
+    <div class="deviation-p">
     <form class="deviation-form">
       <div class="mt-4 mb-3"><span><b>Deviation Sought for Credit Card Defaults</b></span></div>
 
@@ -32,12 +33,14 @@
     <div class="button mt-5">
       <button mat-button class="deviation-btn">Generate Deviation form</button>
     </div>
+    </div>
   </mat-tab>
 
   <mat-tab label="Update Decision">
-    <div class="mt-4 text-style"><span><b>Deviation Sought for Credit Card Defaults</b></span></div>
+    <div class="deviation-p">
+      <div class="mt-4 text-style"><span><b>Deviation Sought for Credit Card Defaults</b></span></div>
     <div class="mt-4 mb-4"><span>Enter details of the action taken on Deviation report</span></div>
-    <form [formGroup]="updateDeviation">
+    <form [formGroup]="updateDeviation" autocomplete="off">
       <div class="reference-no mb-2 ">
         <mat-form-field class="deviation-width">
           <mat-label>Approval / Cir. Reference No.</mat-label>
@@ -65,7 +68,7 @@
       <div class="decision-rpt mb-2">
         <mat-form-field class="deviation-width">
           <mat-label>Decision Taken on Report</mat-label>
-          <mat-select formControlName="selectStatus">
+          <mat-select formControlName="selectStatus" (selectionChange)="reportStatus($event);">
             <mat-option value="approve">Approved</mat-option>
             <mat-option value="reject">Reject</mat-option>
           </mat-select>
@@ -73,13 +76,15 @@
       </div>
 
       <div class="mb-10"><span>Remarks:</span></div>
-      <textarea type="text" placeholder="Enter Remarks, if any" class="remarks-box"></textarea>
+      <textarea type="text" placeholder="Enter Remarks, if any" class="remarks-box" formControlName='remarks'></textarea>
       <hr>
       <div class="button">
-        <button mat-button class="save-btn" (click)="saveButton">Save</button>
+        <button mat-button class="save-btn" [disabled]="updateDeviation.invalid" (click)="saveButton">Save</button>
         <button mat-button class="cancel-btn" (click)="closeButton()">Cancel</button>
       </div>
 
     </form>
+    </div>
+
   </mat-tab>
 </mat-tab-group>

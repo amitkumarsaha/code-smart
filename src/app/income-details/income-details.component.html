@@ -1,0 +1,169 @@
+
+ 
+<div class="modal-header">
+  <h4 class="modal-title">Income Details</h4>
+</div>
+
+<div class="modal-body">
+
+  <div class="row">
+    <div class="col col-md-3 col-lg-3">
+      <mat-form-field>
+        <mat-label>Mode of Repayment</mat-label>
+        <mat-select formControlName="modeRepay" (selectionChange)="changeAccount($event)">
+          <mat-option *ngFor="let mode of repaymentList" [value]="mode.value"> {{ mode.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col col-md-9 col-lg-9">
+      <h5>Salary Account Details</h5>
+      <form>
+        <div class="row">
+          <div class="col col-md-4 col-lg-4">
+            <div class="form-group">
+              <label for="salaryAct">Salary A/C No</label>
+              <input type="text" class="form-control" id="salaryAct">
+
+            </div>
+          </div>
+          <div class="col col-md-3 col-lg-3">
+            <div class="form-group">
+              <label for="ifscCode">IFSC Code</label>
+              <input type="text" class="form-control" id="ifscCode">
+
+            </div>
+          </div>
+          <div class="col col-md-2 col-lg-2">
+            <div class="form-group">
+              <button type="submit" class="btn btn-outline-secondary mt-4 mtop-2" [disabled]="incomeDetails.invalid"
+                (click)="fetchTable()">Fetch</button>
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-9 col-md-9 col-lg-9 table-responsive">
+            <table class="table table-striped table-bordered" *ngIf="showTable">
+              <thead>
+                <tr>
+                  <th scope="col">Name of Branch</th>
+                  <th scope="col">Branch Code</th>
+                  <th scope="col">Branch Name</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><button type="submit" class="btn btn-default">Delete</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 col-lg-12">
+            
+          <div class="form-check mb-4">
+            <input type="checkbox" class="form-check-input" id="AccountSalary">
+            <label class="form-check-label" for="AccountSalary">Is salary regularly credited to the account?</label>
+          </div>
+            
+  </div>
+     </div>
+
+
+    <h6>Salary Credit in bank account(Net Monthly)</h6>
+   <div class="table-responsive">
+   <table class="table table-striped table-bordered">
+      <thead>
+      <tr>
+        <th>SI.No</th>
+        <th>Year</th>
+        <th>Month(s)</th>
+        <th>Net Monthly Salary <br>(As per bank statement)
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>1</th>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              2019
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">2018</a>
+              <a class="dropdown-item" href="#">2017</a>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Oct
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Sep</a>
+              <a class="dropdown-item" href="#">Aug</a>
+            </div>
+          </div>
+        </td>
+        <td><input type='text' name='username' class="form-control" /></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>2019</td>
+        <td>Sep</td>
+        <td><input type='text' name='username'  class="form-control"/></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>2019</td>
+        <td>Aug</td>
+        <td><input type='text' name='username' class="form-control" /></td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>2019</td>
+        <td>July</td>
+        <td><input type='text' name='username' class="form-control" /></td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>2019</td>
+        <td>June</td>
+        <td><input type='text' name='username' class="form-control" /></td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td>2019</td>
+        <td>May</td>
+        <td><input type='text' name='username' class="form-control" /></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td>Total</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  </div> 
+</div>
+       
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default">Cancel</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+

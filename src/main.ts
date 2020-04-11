@@ -8,12 +8,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './app/material-module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddEmploymentDetailsComponent } from './app/add-employment-details/add-employment-details.component'
-import { ButtonOverviewExample } from './app/button-overview-example';
 import { RoVerificationComponent } from './app/ro-verification/ro-verification.component';
 import { DeviationComponent } from './app/deviation/deviation.component';
 
+import {ButtonOverviewExample} from './app/button-overview-example';
+import { IncomeDetailsComponent } from './app/income-details/income-details.component';
 
 @NgModule({
   imports: [
@@ -24,10 +25,10 @@ import { DeviationComponent } from './app/deviation/deviation.component';
     DemoMaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    NgbModule
+    // NgbModule
   ],
-  entryComponents: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent],
-  declarations: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent],
+  entryComponents: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent,IncomeDetailsComponent],
+  declarations: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent, IncomeDetailsComponent],
   bootstrap: [ButtonOverviewExample],
   providers: []
 })

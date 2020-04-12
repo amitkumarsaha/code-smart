@@ -19,13 +19,10 @@ export class ButtonOverviewExample {
   closeResult: string;
   content: any;
   color = "accent";
-  // encapsulation: ViewEncapsulation.None,
   constructor(
-    // private modalService: NgbModal,
-     public dialog: MatDialog) { }
+    public dialog: MatDialog) { }
 
-  openXl(content: string) {
-    // this.modalService.open(AddEmploymentDetailsComponent, { size: 'xl' });
+  openXl() {
     let dialogRef = this.dialog.open(AddEmploymentDetailsComponent, {
       height: "800px",
       width: "600px"
@@ -34,7 +31,7 @@ export class ButtonOverviewExample {
 
   openRoVerification() {
     let dialogRef = this.dialog.open(RoVerificationComponent, {
-      height: "900px",
+      height: "600px",
       width: "600px"
     });
   }
@@ -46,7 +43,7 @@ export class ButtonOverviewExample {
     });
   }
 
-  openIncomeDetails(){
+  openIncomeDetails() {
     const dialogRef = this.dialog.open(IncomeDetailsComponent, {
       width: '900px',
       height: '800px'

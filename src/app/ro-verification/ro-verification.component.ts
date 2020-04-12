@@ -10,16 +10,27 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class RoVerificationComponent implements OnInit {
   displayedColumns: string[] = ["name", "num", "email"];
-  roVerificationForm = new FormGroup({
-    entityType: new FormControl(""),
+  reportDecision: any;
+  approveRejectDate: Date;
+  roUpdateForm = new FormGroup({
+    reportDecision: new FormControl('', Validators.required),
+    approveRejectDate: new FormControl('', Validators.required),
+    remarks: new FormControl("")
+  })
+
+  roVerificationBankOfficerForm = new FormGroup({
     pfId: new FormControl('', Validators.required),
     name: new FormControl(""),
     mobile: new FormControl(""),
     email: new FormControl(""),
     remarks: new FormControl(""),
+  });
+
+  roVerificationThirdPartyForm = new FormGroup({
     agencyName: new FormControl('', Validators.required),
     agencyUserName: new FormControl('', Validators.required),
     agencyEmail: new FormControl('', Validators.required),
+    remarks: new FormControl(""),
     agencyMobile: new FormControl('', Validators.required)
   });
 
@@ -34,6 +45,8 @@ export class RoVerificationComponent implements OnInit {
   showUserProfile = false;
   showDownloadButton = false;
   username: any;
+  maxDate = Date.now;
+  showDownloadButton2 = false;
 
   constructor(private dialogRef: MatDialogRef<RoVerificationComponent>) {
   }
@@ -51,16 +64,24 @@ export class RoVerificationComponent implements OnInit {
     this.username = this.listData.default[0].name;
   }
 
-  selectAgencyName() {
-    console.log(this.agencyName);
-  }
-
-  onSubmit() {
-    console.log(this.roVerificationForm.value);
-  }
-
   showDownload() {
     this.showDownloadButton = true;
+  }
+
+  showDownload2() {
+    this.showDownloadButton2 = true;
+  }
+
+  onSubmitUpdate(event: any) {
+    console.log(event.value);
+  }
+
+  onSubmitThirdParty(event: any) {
+    console.log(event.value);
+  }
+
+  onSubmitBankOfficer(event: any) {
+    console.log(event.value);
   }
 
 }

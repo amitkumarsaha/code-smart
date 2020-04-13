@@ -2,20 +2,20 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Initiate RO Verification">
     <div class="ro-verification">
-      <form [formGroup]="roVerificationForm" (ngSubmit)="onSubmit()">
-
-        <div class="entity">
-          <div>
-            <mat-label>Select Entity Type</mat-label>
-          </div>
-          <mat-radio-group aria-label="Select Entity Type" formControlName="entityType" [(ngModel)]="entityType">
-            <mat-radio-button value="bankOfficer">Bank Officer</mat-radio-button>
-            <mat-radio-button value="thirdParty">Third Party Agency</mat-radio-button>
-          </mat-radio-group>
+      <div class="entity">
+        <div>
+          <mat-label>Select Entity Type</mat-label>
         </div>
+        <mat-radio-group aria-label="Select Entity Type" [(ngModel)]="entityType">
+          <mat-radio-button value="bankOfficer">Bank Officer</mat-radio-button>
+          <mat-radio-button value="thirdParty">Third Party Agency</mat-radio-button>
+        </mat-radio-group>
+      </div>
 
 
-        <div *ngIf="entityType == 'bankOfficer'">
+      <div *ngIf="entityType == 'bankOfficer'">
+        <form [formGroup]="roVerificationBankOfficerForm"
+          (ngSubmit)="onSubmitBankOfficer(roVerificationBankOfficerForm)">
           <div>
             <mat-form-field class="deviation-full-width">
               <mat-label>PF ID:</mat-label>
@@ -41,56 +41,65 @@
               </table>
             </div>
           </div>
-        </div>
+          <div class="remarks">
+            <div><span>Remarks:</span></div>
+            <textarea type="text" formControlName="remarks" placeholder="Enter Remarks, if any"
+              class="remarks-box"></textarea>
+          </div>
+          <div class="button">
+            <button mat-button class="ro-btn" (click)="showDownload()">Generate Ro Verification Form</button>
+          </div>
 
-        <div *ngIf="entityType=='thirdParty'">
+          <div class="button" *ngIf="showDownloadButton">
+            <button mat-button class="ro-btn">Download Ro Verification Report</button>
+          </div>
+        </form>
+      </div>
 
-          <div class="agencyName">
-            <mat-form-field class="ro-width">
+      <div *ngIf="entityType=='thirdParty'">
+        <form [formGroup]="roVerificationThirdPartyForm" (ngSubmit)="onSubmitThirdParty(roVerificationThirdPartyForm)">
+          <div class="col-md-6 agency-name">
+            <mat-form-field>
               <mat-label>Agency Name</mat-label>
               <input matInput placeholder="Enter Agency Name" formControlName="agencyName" [(ngModel)]="agencyName"
                 (keyup)="selectAgencyName()">
             </mat-form-field>
-          </div>
 
-          <div class="pfid">
-            <mat-form-field class="ro-width">
+            <mat-form-field>
               <mat-label>Agency User Name</mat-label>
               <input matInput placeholder="Enter Agency User Name" formControlName="agencyUserName"
                 [(ngModel)]="agencyUserName">
             </mat-form-field>
           </div>
 
-          <div class="appr-date">
+          <div class="col-md-6 agency-number">
             <mat-form-field>
               <mat-label>Agency Mobile No.</mat-label>
               <input matInput placeholder="Enter Mobile No" formControlName="agencyMobile" [(ngModel)]="agencyMobile">
             </mat-form-field>
-          </div>
 
-          <div class="agency-email">
             <mat-form-field>
               <mat-label>Agency Email</mat-label>
               <input matInput placeholder="Enter Email ID" formControlName="agencyEmail" [(ngModel)]="agencyEmail">
             </mat-form-field>
           </div>
+          <div class="remarks">
+            <div><span>Remarks:</span></div>
+            <textarea type="text" formControlName="remarks" placeholder="Enter Remarks, if any"
+              class="remarks-box"></textarea>
+          </div>
 
-        </div>
+          <div class="button">
+            <button mat-button class="ro-btn" (click)="showDownload2()">Generate Ro Verification Form</button>
+          </div>
 
-        <div class="remarks">
-          <div><span>Remarks:</span></div>
-          <textarea type="text" placeholder="Enter Remarks, if any" class="remarks-box"></textarea>
-        </div>
-      </form>
-      <div class="button">
-        <button mat-button class="ro-btn" type="button" (click)="showDownload()">Generate Ro Verification Form</button>
+          <div class="button" *ngIf="showDownloadButton2">
+            <button mat-button class="ro-btn">Download Ro Verification Report</button>
+          </div>
+        </form>
       </div>
 
-      <div class="button" *ngIf="showDownloadButton">
-        <button mat-button class="ro-btn">Download Ro Verification Report</button>
-      </div>
-
-      <div class="button">
+      <div class="button-done">
         <button mat-button class="save-btn">Done</button>
       </div>
     </div>
@@ -101,35 +110,40 @@
       <div class="update-decision-heading"><span>Enter details of the action taken on the Residence and Office (RO)
           report</span></div>
       <div>RO Verification Conducted by {{pfId}} - {{username}}</div>
+      <form [formGroup]="roUpdateForm" (ngSubmit)="onSubmitUpdate(roUpdateForm)">
+        <div class="">
+          <mat-form-field>
+            <mat-label>Date of Decision</mat-label>
+            <!-- <mat-hint>(On which day the approval/rejection happened)</mat-hint> -->
+            <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="approveRejectDate"
+              (selectionChange)="updateDate($event)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
 
-      <div class="decision-date">
-        <mat-form-field>
-          <mat-label>Date of Decision</mat-label>
-          <input matInput [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
+        <div class="">
+          <mat-form-field class="decision">
+            <mat-label>Decision Taken on Report</mat-label>
+            <mat-select formControlName="reportDecision" (selectionChange)="changeDecision($event)">
+              <mat-option value="satisactory">Satisactory</mat-option>
+              <mat-option value="dissatisfactory">Dissatisfactory</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
 
-      <div class="decision-rpt">
-        <mat-form-field>
-          <mat-label>Decision Taken on Report</mat-label>
-          <mat-select>
-            <mat-option value="satisactory">Satisactory</mat-option>
-            <mat-option value="dissatisfactory">Dissatisfactory</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
 
-      <div class="remarks">
-        <div><span>Remarks:</span></div>
-        <textarea type="text" placeholder="Enter Remarks, if any" class="remarks-box"></textarea>
-      </div>
+        <div class="remarks">
+          <div><span>Remarks:</span></div>
+          <textarea type="text" formControlName="remarks" placeholder="Enter Remarks, if any"
+            class="remarks-box"></textarea>
+        </div>
 
-      <div class="button">
-        <button mat-button class="cancel-btn" (click)="closeDialog()">Cancel</button>
-        <button mat-button class="save-btn">Save</button>
-      </div>
+        <div class="button">
+          <button mat-button type="reset" class="cancel-btn" (click)="closeDialog()">Cancel</button>
+          <button mat-button class="save-btn">Save</button>
+        </div>
+      </form>
     </div>
   </mat-tab>
 </mat-tab-group>

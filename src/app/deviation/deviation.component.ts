@@ -16,7 +16,7 @@ export class DeviationComponent implements OnInit {
   updateDeviation: FormGroup;
   listData: any = data;
   dataSource: any;
-
+  showDownloadButton = false;
   constructor(private http: HttpClient, private dialogRef: MatDialogRef<DeviationComponent>) {
     // this.maxDate.setDate(this.maxDate.getDate());
 
@@ -47,5 +47,12 @@ export class DeviationComponent implements OnInit {
       this.updateDeviation.controls['remarks'].setValidators(null);
       this.updateDeviation.controls['remarks'].updateValueAndValidity();
     }
+  }
+
+  showDownload() {
+    this.showDownloadButton = true;
+  }
+  onSubmit() {
+    console.log(this.updateDeviation.value);
   }
 }

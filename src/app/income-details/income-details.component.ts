@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import * as moment from 'moment';
+// import 'moment/locale/pt-br';
 
 @Component({
   selector: 'app-income-details',
@@ -12,6 +14,7 @@ export class IncomeDetailsComponent implements OnInit {
   incomeDetails: FormGroup;
   repaymentList: any= [];
   
+  
   constructor() {
     this.incomeDetails = new FormGroup({
       modeRepay: new FormControl(null),
@@ -19,6 +22,9 @@ export class IncomeDetailsComponent implements OnInit {
       ifscCode: new FormControl(null)
     })
 
+
+    this.curDate();
+ 
 
     this.repaymentList = [
      {
@@ -36,11 +42,26 @@ export class IncomeDetailsComponent implements OnInit {
     ]
   }
 
+
+  monthslist:any=[];
+  curDate() {
+    debugger
+    // let now=moment().subtract(6, 'months').format('MMM');
+    for(var i=0;i<6;i++){
+    this.monthslist.push(moment().subtract(i, 'months').format('MMM'));
+    }
+    // for(var i=0;i<6;i++){
+    //   this.monthslist.push(moment().subtract(i, 'months').format('yyyy'));
+    //   }
+    console.log("now",this.monthslist)
+ }
+
   ngOnInit() {
   }
   changeAccount(event: any){
     // this.showAccDetails = false;
     console.log(event);
+    this.showTable = false;
 
     if(event && event.value == 'NACH') {
       this.showAccDetails = true;
@@ -50,7 +71,7 @@ export class IncomeDetailsComponent implements OnInit {
       this.incomeDetails.controls["ifscCode"].updateValueAndValidity();
     }else {
       this.showAccDetails = false;
-      this.showTable = false;
+      // this.showTable = false;
       this.incomeDetails.reset();
     }
    }

@@ -1,8 +1,6 @@
-
- 
-<div class="modal-header">
-  <h4 class="modal-title">Income Details</h4>
-</div>
+    <div class="modal-header">
+      <h4 class="modal-title">Income Details</h4>
+    </div>
 
 <div class="modal-body">
 
@@ -15,8 +13,8 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="col col-md-9 col-lg-9">
-      <h5>Salary Account Details</h5>
+    <div class="col col-md-9 col-lg-9" *ngIf="showAccDetails">
+      <h6>Salary Account Details</h6>
       <form>
         <div class="row">
           <div class="col col-md-4 col-lg-4">
@@ -35,7 +33,7 @@
           </div>
           <div class="col col-md-2 col-lg-2">
             <div class="form-group">
-              <button type="submit" class="btn btn-outline-secondary mt-4 mtop-2" [disabled]="incomeDetails.invalid"
+              <button type="submit" class="btn btn-outline-secondary mt-4 mtop-2"
                 (click)="fetchTable()">Fetch</button>
 
             </div>
@@ -102,8 +100,8 @@
               2019
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">2018</a>
-              <a class="dropdown-item" href="#">2017</a>
+              <!-- <a class="dropdown-item" href="#">2018</a>
+              <a class="dropdown-item" href="#">2017</a> -->
             </div>
           </div>
         </td>
@@ -113,7 +111,7 @@
               aria-haspopup="true" aria-expanded="false">
               Oct
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" (click)="curDate()">
               <a class="dropdown-item" href="#">Sep</a>
               <a class="dropdown-item" href="#">Aug</a>
             </div>
@@ -121,13 +119,13 @@
         </td>
         <td><input type='text' name='username' class="form-control" /></td>
       </tr>
-      <tr>
+      <tr *ngFor="let m of monthslist">
         <th scope="row">2</th>
         <td>2019</td>
-        <td>Sep</td>
+        <td>{{m}}</td>
         <td><input type='text' name='username'  class="form-control"/></td>
       </tr>
-      <tr>
+      <!-- <tr>
         <th scope="row">3</th>
         <td>2019</td>
         <td>Aug</td>
@@ -150,7 +148,7 @@
         <td>2019</td>
         <td>May</td>
         <td><input type='text' name='username' class="form-control" /></td>
-      </tr>
+      </tr> -->
       <tr>
         <th scope="row"></th>
         <td></td>
@@ -166,4 +164,3 @@
         <button type="button" class="btn btn-default">Cancel</button>
         <button type="button" class="btn btn-primary">Save</button>
       </div>
-

@@ -3,13 +3,21 @@
 }
 
 .ro-btn{
-  background-color: lightgray;
+  background-color: lightgrey;
   border-radius: 25px;
 }
 
 .ro-ver-heading{
   padding: 10px;
   background-color: #2196F3;
+}
+
+.mat-radio-button{
+  padding-right: 52px
+}
+
+.agency-name, .agency-number{
+  display: inline-block;
 }
 
 .update-decision-heading{
@@ -49,7 +57,7 @@ table {
 .table-border th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
+  text-align: center;
   background-color: aliceblue;
   color: black;
   border: 1px solid #ddd;
@@ -58,6 +66,10 @@ table {
 .agencyName{
   width: 50%;
   float: left;
+}
+
+.decision{
+  width: 204px;
 }
 
 .appr-date{

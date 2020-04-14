@@ -1,247 +1,224 @@
 <div class="modal-header">
-        <h4 class="modal-title">Employment Details</h4>
-        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <h5 class="heading">Employment Details</h5>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+      <div class="form-row">
+              <div class="col-md-4 mb-3">
+                 <label for="inputState">Nature of Employment</label>
+                <!-- <select id="inputState" class="form-control">
+                  <option selected>Select Employment</option>
+                  <option>Permanent</option>
+                  <option>Contractual</option>
+                  <option>Part Time</option>
+                  <option>Casual</option>
+                </select> -->
+                <select class="form-control" [(ngModel)]="selectedNav" (change)="setNav(selectedNav)" placeholder="Quantity">
+                  <option *ngFor="let q of navs" [value]="q"> {{q}} </option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="inputState">Organization Type</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Select Organization Type</option>
+                    <option>Central Govt</option>
+                    <option>State Govt</option>
+                    <option>Central PSU</option>
+                    <option>Teacher/ Staff of Govt. Sch</option>
+                    <option>Defence</option>
+                    <option>Paramilitary</option>
+                    <option>Corporate</option>
+                    <option>Non-corporate</option>
+                    <option>Societies</option>
+                    
+                  </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault01">Nature of Employer</label>
+                  <input type="text" class="form-control" id="validationDefault01"  required>
+               </div>
       </div>
-      <div class="modal-body">
-            <div class="form-row">
-                    <div class="col-md-4 mb-3">
-                       <label for="inputState">Nature of Employment</label>
-                      <select id="inputState" class="form-control">
-                        <option selected>Select Employment</option>
-                        <option>Permanent</option>
-                        <option>Contractual</option>
-                        <option>Part Time</option>
-                        <option>Casual</option>
-                      </select>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="inputState">Organization Type</label>
-                        <select id="inputState" class="form-control">
-                          <option selected>Select Organization Type</option>
-                          <option>Central Govt</option>
-                          <option>State Govt</option>
-                          <option>Central PSU</option>
-                          <option>Teacher/ Staff of Govt. Sch</option>
-                          <option>Defence</option>
-                          <option>Paramilitary</option>
-                          <option>Corporate</option>
-                          <option>Non-corporate</option>
-                          <option>Societies</option>
-                          
-                        </select>
+               <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                         <label for="inputState">Working in current organization since</label>
+                         <div class="form-group">
+                              <div class="input-group">
+                                <input class="form-control" placeholder="yyyy-mm-dd"
+                                       name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                                </div>
+                              </div>
+                            </div>
                       </div>
                       <div class="col-md-4 mb-3">
-                        <label for="validationDefault01">Nature of Employer</label>
-                        <input type="text" class="form-control" id="validationDefault01"  required>
-                     </div>
-            </div>
-                     <div class="form-row">
-                            <div class="col-md-4 mb-3">
-                               <label for="inputState">Working in current organization since</label>
-                               <div class="form-group">
-                                    <div class="input-group">
-                                      <input class="form-control" placeholder="yyyy-mm-dd"
-                                             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                                      <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-                                      </div>
+                          <label for="inputState">Date of Retirement</label>
+                          <div class="form-group">
+                                  <div class="input-group">
+                                    <input class="form-control" placeholder="yyyy-mm-dd"
+                                           name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                                    <div class="input-group-append">
+                                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
                                     </div>
                                   </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="inputState">Date of Retirement</label>
-                                <div class="form-group">
-                                        <div class="input-group">
-                                          <input class="form-control" placeholder="yyyy-mm-dd"
-                                                 name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                                          <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-                                          </div>
-                                        </div>
-                                      </div>
-                              </div>
+                                </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <label for="validationDefault01">Total Experience</label>
+                          <input type="text" class="form-control" id="validationDefault01"  required>
+                       </div>
+                       </div>
+                       <h6 class="heading">Current Office Address</h6>
+                       <hr>
+                       <div class="form-row">
+                       <div class="col-md-4 mb-3">
+                           <label for="validationDefault01">PIN</label>
+                           <input type="text" class="form-control" id="validationDefault01"  required>
+                         </div>
+               
+                        <div class="col-md-4 mb-3">
+                              <label >Address Line 1</label>
+                             <input type="text" class="form-control" id="validationDefault01"  required>
+                           </div>
+                           <div class="col-md-4 mb-3">
+                             <label >Adress Line2 (optional)</label>
+                             <input type="text" class="form-control" id="validationDefault01"  required>
+                           </div>
+                       </div>  
+                       <div class="form-row">
                               <div class="col-md-4 mb-3">
-                                <label for="validationDefault01">Total Experience</label>
-                                <input type="text" class="form-control" id="validationDefault01"  required>
-                             </div>
-                             </div>
-                             <h4>Current Office Address</h4>
-                             <hr>
-                             <div class="form-row">
-                             <div class="col-md-4 mb-3">
-                                 <label for="validationDefault01">PIN</label>
-                                 <input type="text" class="form-control" id="validationDefault01"  required>
-                               </div>
-                     
-                              <div class="col-md-4 mb-3">
-                                    <label >Address Line 1</label>
-                                   <input type="text" class="form-control" id="validationDefault01"  required>
-                                 </div>
-                                 <div class="col-md-4 mb-3">
-                                   <label >Adress Line2 (optional)</label>
-                                   <input type="text" class="form-control" id="validationDefault01"  required>
-                                 </div>
-                             </div>  
-                             <div class="form-row">
-                                    <div class="col-md-4 mb-3">
-                                        <label for="validationDefault01">Landmark (optional)</label>
-                                        <input type="text" class="form-control" id="validationDefault01"  required>
-                                      </div>
-                            
-                                     <div class="col-md-4 mb-3">
-                                           <label >Village</label>
-                                          <input type="text" class="form-control" id="validationDefault01"  required>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                          <label >Town city</label>
+                                  <label for="validationDefault01">Landmark (optional)</label>
+                                  <input type="text" class="form-control" id="validationDefault01"  required>
+                                </div>
+                      
+                               <div class="col-md-4 mb-3">
+                                     <label >Village</label>
+                                    <input type="text" class="form-control" id="validationDefault01"  required>
+                                  </div>
+                                  <div class="col-md-4 mb-3">
+                                    <label >Town city</label>
+                                    <select id="inputState" class="form-control">
+                                          <option ></option>
+                                          <option></option>
+                                  </select>
+                                  </div>
+                              </div>  
+                              <div class="form-row">
+                                      <div class="col-md-4 mb-3">
+                                          <label for="validationDefault01">District</label>
                                           <select id="inputState" class="form-control">
-                                                <option ></option>
-                                                <option></option>
-                                        </select>
+                                                  <option ></option>
+                                                  <option>......</option>
+                                          </select>
                                         </div>
-                                    </div>  
-                                    <div class="form-row">
-                                            <div class="col-md-4 mb-3">
-                                                <label for="validationDefault01">District</label>
-                                                <select id="inputState" class="form-control">
-                                                        <option ></option>
-                                                        <option>......</option>
-                                                </select>
-                                              </div>
-                                    
-                                             <div class="col-md-4 mb-3">
-                                                   <label >State</label>
-                                                   <select id="inputState" class="form-control">
-                                                        <option ></option>
-                                                        <option>......</option>
-                                                </select>
+                              
+                                       <div class="col-md-4 mb-3">
+                                             <label >State</label>
+                                             <select id="inputState" class="form-control">
+                                                  <option ></option>
+                                                  <option>......</option>
+                                          </select>
+                                          </div>
+                                          <div class="col-md-4 mb-3">
+                                            <label >Country</label>
+                                            <select id="inputState" class="form-control">
+                                                  <option ></option>
+                                                  <option>......</option>
+                                          </select>
+                                          </div>
+                                      </div>  
+                                      <div class="form-row">
+                                              <div class="col-md-4 mb-3">
+                                                  <label for="validationDefault01">Landmark (optional)</label>
+                                                  <input type="text" class="form-control" id="validationDefault01"  required>
                                                 </div>
-                                                <div class="col-md-4 mb-3">
-                                                  <label >Country</label>
-                                                  <select id="inputState" class="form-control">
-                                                        <option ></option>
-                                                        <option>......</option>
-                                                </select>
-                                                </div>
-                                            </div>  
-                                            <div class="form-row">
-                                                    <div class="col-md-4 mb-3">
-                                                        <label for="validationDefault01">Landmark (optional)</label>
-                                                        <input type="text" class="form-control" id="validationDefault01"  required>
-                                                      </div>
-                                            
-                                                     <div class="col-md-4 mb-3">
-                                                           <label >Village</label>
+                                      
+                                               <div class="col-md-4 mb-3">
+                                                     <label >Village</label>
+                                                    <input type="text" class="form-control" id="validationDefault01"  required>
+                                                  </div>
+                                                  <div class="col-md-4 mb-3">
+                                                    <label >Town city</label>
+                                                    <select id="inputState" class="form-control">
+                                                          <option ></option>
+                                                          <option></option>
+                                                  </select>
+                                                  </div>
+                                              </div>  
+                                              <div class="form-row">
+                                                      <div class="col-md-4 mb-3">
+                                                          <label for="validationDefault01">Phone No</label>
                                                           <input type="text" class="form-control" id="validationDefault01"  required>
                                                         </div>
-                                                        <div class="col-md-4 mb-3">
-                                                          <label >Town city</label>
-                                                          <select id="inputState" class="form-control">
-                                                                <option ></option>
-                                                                <option></option>
-                                                        </select>
-                                                        </div>
-                                                    </div>  
-                                                    <div class="form-row">
+                                              
+                                                       <div class="col-md-4 mb-3">
+                                                             <label >Office email id(optional)</label>
+                                                             <input type="text" class="form-control" id="validationDefault01"  required>
+                                                          </div>
+                                                          
+                                              </div> 
+                                                     
+                                                      <!-- Hide Show Layout -->
+                                                     
+                                                        <div *ngIf="regTypeSelectedOption === 'showlayout'">
+                                                            <h6 class="heading">Check-off & DDO Details</h6>
+                                                            <hr>
+                                                            <div class="form-row">
                                                             <div class="col-md-4 mb-3">
-                                                                <label for="validationDefault01">Phone No</label>
-                                                                <input type="text" class="form-control" id="validationDefault01"  required>
-                                                              </div>
-                                                    
-                                                             <div class="col-md-4 mb-3">
-                                                                   <label >Office email id(optional)</label>
-                                                                   <input type="text" class="form-control" id="validationDefault01"  required>
+                                                              <label for="validationDefault01">Check-off available?</label><br>
+                                                              <mat-radio-group aria-label="Select an option">
+                                                                <mat-radio-button value="1">Yes</mat-radio-button>
+                                                                <mat-radio-button value="2">No</mat-radio-button>
+                                                              </mat-radio-group>
+                                                            </div>
+                                                  
+                                                           <div class="col-md-4 mb-3">
+                                                                 <label >Is Applicant DDO</label><br>
+                                                                 <mat-radio-group aria-label="Select an option">
+                                                                  <mat-radio-button value="1">Yes</mat-radio-button>
+                                                                  <mat-radio-button value="2">No</mat-radio-button>
+                                                                </mat-radio-group>
+                                                          </div>
+                                                          <div class="col-md-4 mb-3">
+                                                                <mat-checkbox class="example-margin" >DDOs address is same as current address</mat-checkbox>
+                                                                <label >DDOs Office address </label>
+                                                          </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-4 mb-3">
+                                                                  <label for="validationDefault01">Check-off Cathegory</label><br>
+                                                                  <mat-radio-group aria-label="Select an option">
+                                                                    <mat-radio-button value="1">Cathegory 1</mat-radio-button>
+                                                                    <mat-radio-button value="2">Cathegory 2</mat-radio-button>
+                                                                  </mat-radio-group>
                                                                 </div>
-                                                                
-                                                            </div>  
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cancel</button>
-        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Save</button>
-      </div>
+                                                      
+                                                               <div class="col-md-4 mb-3">
+                                                                     <label >
+                                                                       DDO Designation
+                                                                     </label><br>
+                                                                     <input type="text" class="form-control" id="validationDefault01"  required>
+                                                              </div>
+                                                              <div class="col-md-4 mb-3">
+                                                                    
+                                                                    
+                                                              </div>
+                                                                </div>
+                                                        <div *ngIf="regTypeSelectedOption === 'Permanent'">
+                                                         
+                                                        </div>
+                                                        <!-- <div *ngIf="regTypeSelectedOption === 'Casual'">
+                                                          option 3
+                                                        </div>  -->
+                                                      </div>
+                                                      
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cancel</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Save</button>
+</div>
 
 
 
-      <!-- <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1"
-      role="dialog" aria-labelledby="dialog-sizes-name1">
-   <div class="modal-dialog modal-lg">
-     <div class="modal-content">
-       <div class="modal-header">
-     <h4 class="modal-title pull-left"> {{ title }} </h4>
-     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-       <span aria-hidden="true">&times;</span>
-     </button>
- </div>
- <div class="modal-body">
-     <h4>Employment Details</h4>
-     <hr>
-     <div class="form-row">
-         <div class="col-md-4 mb-3">
-            <label for="inputState">Nature of Employment</label>
-           <select id="inputState" class="form-control">
-             <option selected>Select Employment</option>
-             <option>Permanent</option>
-             <option>Contractual</option>
-             <option>Part Time</option>
-             <option>Casual</option>
-           </select>
-         </div>
-         <div class="col-md-4 mb-3">
-             <label for="inputState">Organization Type</label>
-             <select id="inputState" class="form-control">
-               <option selected>Select Organization Type</option>
-               <option>Central Govt</option>
-               <option>State Govt</option>
-               <option>Central PSU</option>
-               <option>Teacher/ Staff of Govt. Sch</option>
-               <option>Defence</option>
-               <option>Paramilitary</option>
-               <option>Corporate</option>
-               <option>Non-corporate</option>
-               <option>Societies</option>
-               
-             </select>
-           </div>
-           
-       <div class="col-md-4 mb-3">
-             <label for="validationDefault01">Nature of Employer</label>
-             <input type="text" class="form-control" id="validationDefault01"  required>
-           </div>
-           <div class="form-row">
-          <div class="col-md-4 mb-3">
-                <label >Working in current organization </label>
-               <input type="text" class="form-control" id="validationDefault01"  required>
-             </div>
-             <div class="col-md-4 mb-3">
-               <label >Date of Retirement</label>
-               <input type="text" class="form-control" id="validationDefault01"  required>
-             </div>
-             <div class="col-md-4 mb-3">
-               <label for="validationDefault05">Total Experience</label>
-               <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
-             </div>
-             </div>
-          <h4>Current Office Address</h4>
-         <hr>
-         <div class="form-row">
-         <div class="col-md-4 mb-3">
-             <label for="validationDefault01">PIN</label>
-             <input type="text" class="form-control" id="validationDefault01"  required>
-           </div>
- 
-          <div class="col-md-4 mb-3">
-                <label >Address Line 1</label>
-               <input type="text" class="form-control" id="validationDefault01"  required>
-             </div>
-             <div class="col-md-4 mb-3">
-               <label >Adress Line2 (optional)</label>
-               <input type="text" class="form-control" id="validationDefault01"  required>
-             </div>
-         </div>  
- </div>
- </div>
- </div>
- </div>
-  -->

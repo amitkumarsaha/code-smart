@@ -9,10 +9,28 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 export class AddEmploymentDetailsComponent implements OnInit {
   @Input() name:any;
   model: NgbDateStruct;
-
+  // name: = 'Angular';
+  regTypeSelectedOption: string = "";
+  selectedNav: any;
+  navs = ['Permanent', 'Contractual', 'Part Time','Casual'];
   constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit() {
+    this.selectedNav = 'select value';
   }
+  setNav(nav:any){
+    this.selectedNav = nav;
+    if(this.selectedNav !== "Permanent"){
+      this.regTypeSelectedOption = "showlayout";
+    }
+  else if(this.selectedNav == "Permanent"){
+    this.regTypeSelectedOption = "Permanent";
+  }
+  //   else if(this.selectedNav == "Casual"){
+  //     this.regTypeSelectedOption = "Casual";
+  //   }
+  }
+  }
+  
 
-}
+

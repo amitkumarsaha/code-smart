@@ -30,23 +30,16 @@ export class ButtonOverviewExample {
   }
 
   openRoVerification() {
-    let dialogRef = this.dialog.open(RoVerificationComponent, {
-      height: "600px",
-      width: "600px"
+    const dialogRef = this.dialog.open(RoVerificationComponent, {
+      height: '400px',
+      width: '600px'
     });
   }
 
   openDeviation() {
-    let dialogRef = this.dialog.open(DeviationComponent, {
-      height: "400px",
-      width: "600px"
-    });
-  }
-
-  openIncomeDetails() {
-    const dialogRef = this.dialog.open(IncomeDetailsComponent, {
-      width: '900px',
-      height: '800px'
+    const dialogRef = this.dialog.open(DeviationComponent, {
+      height: '600px',
+      width: '700px'
     });
   }
 

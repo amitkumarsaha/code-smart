@@ -7,13 +7,7 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./add-employment-details.component.scss']
 })
 export class AddEmploymentDetailsComponent implements OnInit {
-  @Input() name:any;
-  // model: NgbDateStruct;
-
-  constructor(
     // public activeModal: NgbActiveModal
-    ) {}
-
   ngOnInit() {
   }
 

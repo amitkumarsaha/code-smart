@@ -28,7 +28,7 @@ import { IncomeDetailsComponent } from './app/income-details/income-details.comp
     // NgbModule
   ],
   entryComponents: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent,IncomeDetailsComponent],
-  declarations: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent,IncomeDetailsComponent],
+  declarations: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent, IncomeDetailsComponent],
   bootstrap: [ButtonOverviewExample],
   providers: []
 })

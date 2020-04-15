@@ -1,7 +1,10 @@
 .ro-verification{
   padding: 20px;
+  width: 100%;
 }
-
+.deviation-width{
+  width: 50%;
+}
 .ro-btn{
   background-color: lightgrey;
   border-radius: 25px;
@@ -16,8 +19,29 @@
   padding-right: 52px
 }
 
-.agency-name, .agency-number{
-  display: inline-block;
+.agency-name{
+  width: 50%;
+  float: left;
+}
+.agency-user{
+  width: 50%;
+  float: right;
+}
+.agency-email{
+  width: 50%;
+  float: left;
+}
+.agency-number{
+  width: 50%;
+  float: right;
+}
+.decision-date{
+  width: 50%;
+  float: left;
+}
+.decision-report{
+  width: 50%;
+  float: right;
 }
 
 .update-decision-heading{
@@ -92,6 +116,7 @@ table {
 .cancel-btn{
   border-radius: 25px;
   float: right;
+  margin-right: 10px;
 
 }
 .save-btn{
@@ -99,5 +124,10 @@ table {
   border-radius: 25px;
   color: white;
   float: right;
+}
+.mat-tab-labels {
+  .mat-tab-label {
+    flex: 1 !important;
+  }
 }
       

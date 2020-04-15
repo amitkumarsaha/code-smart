@@ -31,8 +31,8 @@ export class ButtonOverviewExample {
 
   openRoVerification() {
     const dialogRef = this.dialog.open(RoVerificationComponent, {
-      height: '400px',
-      width: '600px'
+      height: '600px',
+      width: '700px'
     });
   }
 

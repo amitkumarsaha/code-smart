@@ -9,6 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ["./ro-verification.component.scss"]
 })
 export class RoVerificationComponent implements OnInit {
+  maxDate = new Date();
   displayedColumns: string[] = ["name", "num", "email"];
   reportDecision: any;
   approveRejectDate: Date;
@@ -45,7 +46,7 @@ export class RoVerificationComponent implements OnInit {
   showUserProfile = false;
   showDownloadButton = false;
   username: any;
-  maxDate = Date.now;
+  // maxDate = Date.now;
   showDownloadButton2 = false;
 
   constructor(private dialogRef: MatDialogRef<RoVerificationComponent>) {

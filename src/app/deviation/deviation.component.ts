@@ -1,16 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as  data from '../../assets/cic.json';
 import { MatDialogRef } from '@angular/material';
+import { pfidValidator} from '../validators';
 
 @Component({
   selector: 'app-deviation',
   templateUrl: './deviation.component.html',
   styleUrls: ['./deviation.component.scss']
 })
-export class DeviationComponent implements OnInit {
+export class DeviationComponent implements OnInit  {
   maxDate = new Date();
   displayedColumns: string[] = ['part', 'num'];
   updateDeviation: FormGroup;
@@ -22,7 +23,7 @@ export class DeviationComponent implements OnInit {
 
     this.updateDeviation = new FormGroup({
       cifNo: new FormControl(null, [Validators.required]),
-      apprvPfId: new FormControl(null, [Validators.required]),
+      apprvPfId: new FormControl(null, [Validators.required, pfidValidator]),
       dateOfApprv: new FormControl(null, [Validators.required]),
       remarks: new FormControl(null),
       selectStatus: new FormControl(null, [Validators.required]),
@@ -34,7 +35,9 @@ export class DeviationComponent implements OnInit {
     this.listData.default.forEach((rest: any) => {
     });
   }
-
+close() {
+  this.dialogRef.close();
+}
   closeButton() {
    this.dialogRef.close();
   }

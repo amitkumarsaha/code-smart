@@ -15,6 +15,7 @@ import { DeviationComponent } from './app/deviation/deviation.component';
 
 import {ButtonOverviewExample} from './app/button-overview-example';
 import { IncomeDetailsComponent } from './app/income-details/income-details.component';
+// import { OnlynumberDirective } from './directives/onlynumber-directive.directive';
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import { IncomeDetailsComponent } from './app/income-details/income-details.comp
     // NgbModule
   ],
   entryComponents: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent,IncomeDetailsComponent],
-  declarations: [ButtonOverviewExample, AddEmploymentDetailsComponent, RoVerificationComponent, DeviationComponent, IncomeDetailsComponent],
+  declarations: [ButtonOverviewExample, AddEmploymentDetailsComponent,  RoVerificationComponent, DeviationComponent, IncomeDetailsComponent],
   bootstrap: [ButtonOverviewExample],
   providers: []
 })

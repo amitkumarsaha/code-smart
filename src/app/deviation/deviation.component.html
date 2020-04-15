@@ -1,9 +1,12 @@
-<div class="devtia-txt"><span>Deviation</span></div>
+<div class="devtia-txt"><span>Deviation</span>
+<button type='button' class='close' (click)='close()' data-dismiss='modal'>x</button></div>
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Initiate Deviation" autocomplete="off">
     <div class="deviation-p">
     <form class="deviation-form" (ngSubmit)="onSubmit()">
-      <div class="mt-4 mb-3"><span><b>Deviation Sought for Credit Card Defaults</b></span></div>
+      <div class="mt-4 mb-3"><span><b>Deviation Sought for Credit Card Defaults</b></span>
+      
+      </div>
 
       <table mat-table [dataSource]="dataSource" class="table-border table-size">
         <ng-container matColumnDef="part">
@@ -19,7 +22,7 @@
       </table>
 
       <div class="mt-4">
-        <mat-form-field class="deviation-full-width">
+        <mat-form-field>
           <mat-label>Approving Authority</mat-label>
           <input matInput placeholder="PF ID">
           <!-- formControlName="pfId" -->

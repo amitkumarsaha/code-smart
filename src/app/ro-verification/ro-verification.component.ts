@@ -55,7 +55,9 @@ export class RoVerificationComponent implements OnInit {
   ngOnInit() {
     this.dataSource = this.listData.default;
   }
-
+  close() {
+    this.dialogRef.close();
+  }
   closeDialog() {
     this.dialogRef.close();
   }

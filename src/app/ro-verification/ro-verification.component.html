@@ -1,10 +1,12 @@
-<div class="ro-ver-heading"><span>RO Verification</span></div>
+<div class="ro-ver-heading"><span>RO Verification</span>
+  <button type='button' class='close' (click)='close()' data-dismiss='modal'>x</button>
+</div>
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Initiate RO Verification">
     <div class="ro-verification">
       <div class="entity">
         <div>
-          <mat-label>Select Entity Type</mat-label>
+          <mat-label class="mb-2"><b>Select Entity Type</b></mat-label>
         </div>
         <mat-radio-group aria-label="Select Entity Type" [(ngModel)]="entityType">
           <mat-radio-button value="bankOfficer">Bank Officer</mat-radio-button>
@@ -17,8 +19,8 @@
         <form [formGroup]="roVerificationBankOfficerForm"
           (ngSubmit)="onSubmitBankOfficer(roVerificationBankOfficerForm)">
           <div>
-            <mat-form-field class="deviation-full-width">
-              <mat-label>PF ID:</mat-label>
+            <mat-form-field class="deviation-full-width mt-2">
+              <mat-label>PF ID</mat-label>
               <input matInput placeholder="Enter PF ID" formControlName="pfId" [(ngModel)]="pfId"
                 (keyup)="showProfile()">
             </mat-form-field>
@@ -57,32 +59,37 @@
       </div>
 
       <div *ngIf="entityType=='thirdParty'">
-        <form [formGroup]="roVerificationThirdPartyForm" (ngSubmit)="onSubmitThirdParty(roVerificationThirdPartyForm)">
-          <div class="col-md-6 agency-name">
-            <mat-form-field>
+        <form [formGroup]="roVerificationThirdPartyForm" autocomplete="off" (ngSubmit)="onSubmitThirdParty(roVerificationThirdPartyForm)">
+          <div class="agency-name mb-2">
+            <mat-form-field class="deviation-width">
               <mat-label>Agency Name</mat-label>
               <input matInput placeholder="Enter Agency Name" formControlName="agencyName" [(ngModel)]="agencyName"
                 (keyup)="selectAgencyName()">
             </mat-form-field>
+          </div>
 
-            <mat-form-field>
+          <div class="agency-user mb-2">
+            <mat-form-field class="deviation-width">
               <mat-label>Agency User Name</mat-label>
               <input matInput placeholder="Enter Agency User Name" formControlName="agencyUserName"
                 [(ngModel)]="agencyUserName">
             </mat-form-field>
           </div>
 
-          <div class="col-md-6 agency-number">
-            <mat-form-field>
+          <div class="agency-number mb-2">
+            <mat-form-field class="deviation-width">
               <mat-label>Agency Mobile No.</mat-label>
-              <input matInput placeholder="Enter Mobile No" formControlName="agencyMobile" [(ngModel)]="agencyMobile">
+              <input matInput placeholder="Enter Mobile No." formControlName="agencyMobile" [(ngModel)]="agencyMobile">
             </mat-form-field>
+          </div>
 
-            <mat-form-field>
+            <div class="agency-email mb-2">
+            <mat-form-field class="deviation-width">
               <mat-label>Agency Email</mat-label>
               <input matInput placeholder="Enter Email ID" formControlName="agencyEmail" [(ngModel)]="agencyEmail">
             </mat-form-field>
           </div>
+
           <div class="remarks">
             <div><span>Remarks:</span></div>
             <textarea type="text" formControlName="remarks" placeholder="Enter Remarks, if any"
@@ -110,11 +117,11 @@
       <div class="update-decision-heading"><span>Enter details of the action taken on the Residence and Office (RO)
           report</span></div>
       <div>RO Verification Conducted by {{pfId}} - {{username}}</div>
-      <form [formGroup]="roUpdateForm" (ngSubmit)="onSubmitUpdate(roUpdateForm)">
-        <div class="">
-          <mat-form-field>
+      <form [formGroup]="roUpdateForm" autocomplete="off" (ngSubmit)="onSubmitUpdate(roUpdateForm)">
+        <div class="decision-date mb-5 mt-3">
+          <mat-form-field class="deviation-width">
             <mat-label>Date of Decision</mat-label>
-            <!-- <mat-hint>(On which day the approval/rejection happened)</mat-hint> -->
+            <mat-hint>(On which day the approval/rejection happened)</mat-hint>
             <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="approveRejectDate"
               (selectionChange)="updateDate($event)">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -122,8 +129,8 @@
           </mat-form-field>
         </div>
 
-        <div class="">
-          <mat-form-field class="decision">
+        <div class="decision-report mb-5 mt-3">
+          <mat-form-field class="decision deviation-width">
             <mat-label>Decision Taken on Report</mat-label>
             <mat-select formControlName="reportDecision" (selectionChange)="changeDecision($event)">
               <mat-option value="satisactory">Satisactory</mat-option>
@@ -138,10 +145,12 @@
           <textarea type="text" formControlName="remarks" placeholder="Enter Remarks, if any"
             class="remarks-box"></textarea>
         </div>
+        <hr>
 
         <div class="button">
-          <button mat-button type="reset" class="cancel-btn" (click)="closeDialog()">Cancel</button>
           <button mat-button class="save-btn">Save</button>
+
+          <button mat-button type="reset" class="cancel-btn" (click)="closeDialog()">Cancel</button>
         </div>
       </form>
     </div>

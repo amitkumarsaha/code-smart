@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation  } from "@angular/core";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddEmploymentDetailsComponent } from './add-employment-details/add-employment-details.component'
-
+import {MatDialog} from '@angular/material/dialog';
 /**
  * @title Basic buttons
  */
@@ -15,13 +15,13 @@ export class ButtonOverviewExample {
   closeResult: string;
   content:any;
 
-  constructor(private modalService: NgbModal,) {}
-
-  openXl(content:string) {
-    this.modalService.open(AddEmploymentDetailsComponent, { size: 'xl' });
-  }
-
+  constructor(private modalService: NgbModal, public dialog : MatDialog) {}
+  openXl()
+{
+  this.dialog.open(AddEmploymentDetailsComponent)
 }
+     }
+
 
 
 /**  Copyright 2019 Google LLC. All Rights Reserved.

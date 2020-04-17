@@ -1,7 +1,7 @@
 import './polyfills';
 
 import {HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
+import {NgModule, } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
 import {BrowserModule} from '@angular/platform-browser';
@@ -9,6 +9,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './app/material-module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddEmploymentDetailsComponent } from './app/add-employment-details/add-employment-details.component'
 import {ButtonOverviewExample} from './app/button-overview-example';
 
@@ -27,7 +28,7 @@ import {ButtonOverviewExample} from './app/button-overview-example';
   entryComponents: [ButtonOverviewExample,AddEmploymentDetailsComponent],
   declarations: [ButtonOverviewExample,AddEmploymentDetailsComponent],
   bootstrap: [ButtonOverviewExample],
-  providers: []
+  providers: [ NgbActiveModal,]
 })
 export class AppModule {}
 
